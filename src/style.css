@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: #020617;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ANIMACIONES */
+
+.fade-up{
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.fade-up.active{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* GLOW NARANJA */
+
+.glow{
+  position: relative;
+}
+
+.glow::before{
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    45deg,
+    rgba(249,115,22,.6),
+    rgba(251,146,60,.2),
+    rgba(249,115,22,.6)
+  );
+  filter: blur(20px);
+  opacity: 0;
+  transition: .4s;
+  z-index: -1;
+}
+
+.glow:hover::before{
+  opacity: 1;
+}
+
+/* IMAGENES */
+
+.image-hover{
+  overflow: hidden;
+}
+
+.image-hover img{
+  transition: transform .6s ease;
+}
+
+.image-hover:hover img{
+  transform: scale(1.08);
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #f97316;
+  border-radius: 999px;
+}
+
+/* Carrusel */
+
+.overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border-radius: 999px;
+}
+
+/* OCULTAR SCROLL DEL CARRUSEL */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.ciudad{
+
+  position:absolute;
+
+  transform:translate(-50%,-50%);
+
+  background:#f97316;
+
+  color:white;
+
+  border:none;
+
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  cursor:pointer;
+
+  font-size:.85rem;
+
+  font-weight:600;
+
+  transition:.3s;
+
+}
+
+.ciudad:hover{
+
+  transform:translate(-50%,-50%) scale(1.1);
+
+  box-shadow:0 0 25px rgba(249,115,22,.7);
+
+}
+
+.ruta {
+
+    stroke: #f97316;
+    stroke-width: 4;
+
+    opacity: 0;
+
+    transition: all .4s ease;
+
+    stroke-linecap: round;
+
+}
+
+.ciudad-svg {
+
+    fill: #f97316;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.ciudad-svg:hover {
+
+    r: 14;
+
+}
+
+#mapa-svg text {
+
+    fill: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    pointer-events: none;
+
+}
+
+.ruta {
+
+  stroke-width: 4;
+
+  fill: none;
+
+  opacity: 0;
+
+  stroke-linecap: round;
+
+  animation: aparecer .4s ease forwards;
+
+}
+
+@keyframes aparecer {
+
+  from {
+
+    opacity: 0;
+
+  }
+
+  to {
+
+    opacity: 1;
+
+  }
+
+}
+.ruta {
+
+    fill: none;
+
+    stroke-width: 4;
+
+    stroke-linecap: round;
+
+    opacity: 1;
+
+}
